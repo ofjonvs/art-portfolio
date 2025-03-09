@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Portfolio - {{ artist_name }}</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Sophie Sato's Art Portfolio</h1>
+      <nav>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Art</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'commission' %}">Commission</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="top-header-social-info text-right">
+        <a href="https://www.instagram.com/hinano.artwork/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384031.png" alt=""></a>
+        <a href="https://x.com/eyeiseeyou" target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968958.png" alt=""></a>
+      </div>
+    </div>
+    <div class="container">
+            {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+      <p>&copy; {% now "Y" %} {{ artist_name }} | All Rights Reserved</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

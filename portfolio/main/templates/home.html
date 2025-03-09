@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soph Portfolio</title>
-</head>
-<body>
-    Soph art portfolio
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="gallery">
+    {% for artwork in art %}
+    <div class="art-card">
+      <img
+        src="{{ artwork.image.url }}"
+        alt="{{ artwork.title }}"
+        class="art-image"
+      />
+      <div class="art-info">
+        <h3 class="art-title">{{ artwork.title }}</h3>
+        <p class="art-description">{{ artwork.description }}</p>
+      </div>
+    </div>
+    {% empty %}
+    <p>No artworks available yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
